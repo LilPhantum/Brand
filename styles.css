@@ -1,0 +1,1306 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font-family: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body a {
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 100;
+}
+
+.icon {
+  color: aliceblue;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* 
+=============================================
+===============FONTS======================== */
+/* === Luxury Brand Font Setup === */
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400..900&family=Poppins:wght@300;400;500;600;700&display=swap");
+
+/* Font variables */
+:root {
+  --font-display: "Playfair Display", Didot, "Bodoni Moda", serif;
+  --font-sans: "Poppins", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  --fs-hero: 2.75rem;
+  --fs-h2: clamp(1.375rem, 3.2vw, 2rem);
+  --fs-body: 1rem;
+  --fs-small: .9rem;
+
+  --pink-light: #fdd4db;
+  --pink-main: #ffbac6;
+  --pink-deep: #e88aa1;
+  --text-dark: #111;
+}
+
+/* Global base */
+body {
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  line-height: 1.6;
+  color: var(--text-dark);
+  background-color: var(--pink-light);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Headings: luxury serif */
+h1,
+h2,
+h3,
+.hero-title,
+.font-display {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: .005em;
+  font-feature-settings: "liga", "kern";
+}
+
+/* Heading sizes */
+h1,
+.hero-title {
+  font-size: var(--fs-hero);
+  line-height: 1.1;
+}
+
+h2 {
+  font-size: var(--fs-h2);
+}
+
+/* Paragraphs + UI text */
+p,
+li,
+small,
+input,
+textarea,
+select,
+button,
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+/* Navigation / labels */
+.nav,
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: var(--fs-small);
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  font-weight: 500;
+}
+
+/* Buttons */
+.button,
+.btn,
+button {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 17px;
+  letter-spacing: .02em;
+  padding: 0.75rem 1.5rem;
+  border-radius: 20px;
+  border: 1px solid #e88aa1;
+  background: linear-gradient(135deg, var(--pink-main), var(--pink-deep));
+  color: white;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+/* Hero supporting text */
+.hero-sub {
+  font-family: var(--font-sans);
+  opacity: .9;
+  max-width: 40ch;
+}
+
+/* ==========================================
+==================HEADER===================*/
+.header-wrapper {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.664);
+  backdrop-filter: blur(8px);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.primary-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 1000px;
+  top: 20px;
+  width: 100%;
+  z-index: 1000;
+  padding: 8px 10px;
+}
+
+.nav ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav ul a {
+  color: var(--text-dark);
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.nav ul a:hover {
+  color: var(--pink-deep);
+}
+
+/* ==========================================
+==================MAIN===================*/
+.main-container {
+  max-width: 850px;
+  min-width: 300px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  font-family: inherit;
+  padding: 0 15px;
+}
+
+/* =================== HERO =================== */
+.hero-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding-top: 70px;
+}
+
+/* Ribbon animation background */
+.hero-container::before,
+.hero-container::after {
+  content: "";
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  width: 120%;
+  height: 120%;
+  background: conic-gradient(from 180deg at 50% 50%,
+      var(--pink-light),
+      var(--pink-main),
+      var(--pink-deep),
+      var(--pink-main),
+      var(--pink-light));
+  animation: ribbons 12s linear infinite;
+  opacity: 0.25;
+  z-index: 0;
+}
+
+.hero-container::after {
+  animation-duration: 20s;
+  animation-direction: reverse;
+  opacity: 0.15;
+}
+
+/* Ribbon animation keyframes */
+@keyframes ribbons {
+  0% {
+    transform: rotate(0deg) scale(1.1);
+  }
+
+  100% {
+    transform: rotate(360deg) scale(1.1);
+  }
+}
+
+/* Mobile adjustments */
+@media (max-width: 600px) {
+
+  .hero-container::before,
+  .hero-container::after {
+    top: -5%;
+    left: -5%;
+    width: 110%;
+    height: 110%;
+    opacity: 0.35;
+    /* make it brighter for visibility */
+  }
+}
+
+.hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  max-width: 850px;
+  min-width: 300px;
+  margin: 0 auto;
+  align-items: center;
+  gap: 20px;
+  text-align: left;
+  z-index: 1;
+  margin-top: 30px;
+}
+
+.hero-top {
+  display: flex;
+  width: 100%;
+  padding: 0 10px;
+  gap: 10px;
+}
+
+.hero-txt {
+  line-height: 1.3;
+}
+
+.hero img {
+  width: 280px;
+  border-radius: 20px;
+  box-shadow: 0px 0px 20px #94556586;
+}
+
+.hero-top button {
+  color: white;
+  font-weight: 600;
+  margin-top: 20px;
+  box-shadow: 0px 5px 10px #f3a6b3;
+}
+
+.text {
+  font-size: 1.2rem
+}
+
+.brands {
+  width: 100%;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  padding: 0 10px;
+}
+
+.brands ul {
+  display: flex;
+  justify-content: space-around;
+  gap: 10px;
+}
+
+.brands img {
+  width: 60px;
+  border-radius: 50%;
+  box-shadow: 5px 0px 10px #92646c;
+  border: 1px solid #b85385be;
+
+}
+
+
+@media (max-width: 600px) {
+
+  .nav ul a {
+    font-size: 12px;
+
+  }
+
+  .brands img {
+    width: 50px;
+  }
+
+  .hero {
+    text-align: center;
+  }
+
+  .hero-img {
+    display: none;
+  }
+}
+
+
+/* ==========================================
+==================DESCRIPTION===================*/
+
+/* Font imports */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Inter:wght@300;400;600;700&display=swap');
+
+:root {
+  --font-display: "Merriweather", Georgia, serif;
+  --font-sans: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  --accent-1: #ffbac6;
+  /* light pink */
+  --accent-2: #e88aa1;
+  /* deeper pink */
+  --muted: #6b6b6b;
+  --card-radius: 18px;
+  --glass: rgba(255, 255, 255, 0.76);
+  --shadow-1: 0 10px 30px rgba(232, 138, 161, 0.10);
+  --shadow-2: 0 18px 40px rgba(232, 138, 161, 0.14);
+}
+
+/* headings: softer serif (less sharp) */
+h1,
+h2,
+h3,
+.section-title {
+  font-family: var(--font-display);
+  color: #111;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+/* body/ui */
+body,
+p,
+a,
+li,
+input,
+button {
+  font-family: var(--font-sans);
+  color: #222;
+}
+
+/* section container */
+.values-section {
+  background: linear-gradient(180deg, rgba(255, 250, 251, 1), rgba(253, 212, 219, 0.075));
+  padding: 50px 18px;
+  position: relative;
+  overflow: visible;
+}
+
+/* section heading */
+.values-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: clamp(1.6rem, 3.6vw, 2.25rem);
+  text-align: center;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+.section-lead {
+  text-align: center;
+  color: var(--muted);
+  max-width: 64ch;
+  margin: 0 auto 34px;
+  font-size: 1rem;
+}
+
+/* cards grid */
+.values-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 22px;
+  align-items: stretch;
+}
+
+/* each card */
+.value-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--card-radius);
+  padding: 26px;
+  background: linear-gradient(180deg, var(--glass), rgba(255, 255, 255, 0.64));
+  border: 1px solid rgba(232, 138, 161, 0.12);
+  box-shadow: var(--shadow-1);
+  transition: transform 320ms cubic-bezier(.2, .9, .2, 1), box-shadow 320ms;
+}
+
+/* soft shimmer ribbon behind cards */
+.value-card::before {
+  content: "";
+  position: absolute;
+  inset: -20% -30% auto -30%;
+  height: 140%;
+  background: linear-gradient(115deg, var(--accent-1), var(--accent-2));
+  transform: rotate(-6deg);
+  opacity: 0.06;
+  filter: blur(22px) saturate(1.02);
+  pointer-events: none;
+}
+
+/* numbered badge top-right */
+.card-badge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: rgba(255, 255, 255, 0.85);
+  color: var(--accent-2);
+  font-weight: 600;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  border: 1px solid rgba(232, 138, 161, 0.08);
+  backdrop-filter: blur(4px);
+  z-index: 2;
+}
+
+/* card header */
+.card-head {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 10px;
+  z-index: 2;
+  position: relative;
+}
+
+/* icon container */
+.card-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 20px rgba(232, 138, 161, 0.12);
+  flex-shrink: 0;
+}
+
+/* title */
+.value-card h3 {
+  font-size: 1.05rem;
+  margin: 0;
+  color: #111;
+}
+
+/* description */
+.value-card p {
+  color: #444;
+  line-height: 1.6;
+  margin-top: 10px;
+  margin-bottom: 18px;
+  z-index: 2;
+}
+
+/* CTA */
+.card-cta {
+  display: inline-block;
+  padding: 9px 16px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--accent-2);
+  border: 1px solid rgba(232, 138, 161, 0.16);
+  background: transparent;
+  text-decoration: none;
+  transition: background 220ms, color 220ms, transform 220ms;
+  z-index: 2;
+}
+
+.card-cta:hover {
+  background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* hover depth */
+.value-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-2);
+}
+
+/* responsive: 2-up and 3-up */
+@media (min-width: 720px) {
+  .values-cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .values-cards {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+}
+
+/* tighten card internals on mobile */
+@media (max-width: 420px) {
+  .card-icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .card-badge {
+    top: 12px;
+    right: 12px;
+    padding: 5px 9px;
+    font-size: 0.8rem;
+  }
+
+  .value-card {
+    padding: 18px;
+    border-radius: 14px;
+  }
+
+  .section-lead {
+    padding: 0 8px;
+  }
+}
+
+
+
+
+/* ==========================================
+==================TESTIMONIAL===================*/
+
+:root {
+  --card-width: 320px;
+  --card-gap: 20px;
+  --carousel-transition: 600ms;
+}
+
+.testimonials-carousel {
+  max-width: 1200px;
+  margin: 2rem auto;
+  text-align: center;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+.testimonials-viewport {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+.testimonials-track {
+  display: flex;
+  gap: var(--card-gap);
+  align-items: stretch;
+  will-change: transform;
+  transition: transform 0.6s ease-in-out;
+  padding: 0.5rem;
+  box-sizing: border-box;
+}
+
+/* Card base */
+.testimonial-card {
+  flex: 0 0 var(--card-width);
+  min-width: var(--card-width);
+  box-sizing: border-box;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 0px 15px rgba(0, 0, 0, 0.08);
+  padding: 1rem;
+  text-align: left;
+}
+
+/* Profile section */
+.card-profile {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.card-profile img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.card-profile h4 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.card-profile span {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+/* Post image */
+.card-post img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  object-fit: cover;
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+}
+
+/* Meta info */
+.card-meta {
+  font-size: 0.9rem;
+  color: #444;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Offer tag (replaces <strong>) */
+.offer-tag {
+  background: #ffbac58e;
+  color: #333;
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 0.25rem 0.6rem;
+  border-radius: 20px;
+  white-space: nowrap;
+
+}
+
+@media (max-width: 900px) {
+  :root {
+    --card-width: 400px;
+  }
+}
+
+@media (max-width: 520px) {
+  :root {
+    --card-width: 350px;
+  }
+}
+
+
+
+
+
+/* ==========================================
+==================APPLICATION===================*/
+
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Inter:wght@300;400;600;700&display=swap");
+
+/* =================== Applications - layout tweaks + modal =================== */
+/* Copy into styles.css (or import) */
+
+:root {
+  --max-width: 800px;
+  --card-radius: 14px;
+  --accent-1: #ffbac6;
+  --accent-2: #e88aa1;
+  --muted: #6b6b6b;
+  --glass: rgba(255, 255, 255, 0.94);
+  --shadow-1: 0 10px 30px rgba(232, 138, 161, 0.06);
+  --shadow-2: 0 18px 40px rgba(232, 138, 161, 0.09);
+  --overlay-bg: rgba(0, 0, 0, 0.44);
+  --overlay-blur: 6px;
+}
+
+/* container */
+.applications-section {
+  padding: 48px 16px;
+  background: rgba(253, 212, 219, 0.03);
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  color: #111;
+}
+
+.applications-container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-sizing: border-box;
+}
+
+.applications-container h1 {
+  font-family: "Merriweather", Georgia, serif;
+  font-size: clamp(1.35rem, 3.2vw, 2rem);
+  margin: 0 0 18px;
+  color: #111;
+  text-align: center;
+}
+
+/* card layout: left logo ~40%, right content ~60% */
+.application-card {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  background: var(--glass);
+  border-radius: var(--card-radius);
+  padding: 16px;
+  border: 1px solid rgba(232, 138, 161, 0.10);
+  box-shadow: var(--shadow-1);
+  transition: transform .28s ease, box-shadow .28s ease;
+  overflow: visible;
+}
+
+/* left logo area */
+.app-left {
+  flex: 0 0 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 6px;
+}
+
+.app-left img {
+  width: 86%;
+  max-width: 160px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(255, 250, 251, 0.9));
+  box-shadow: 5px 10px 15px rgba(0, 0, 0, 0.192);
+}
+
+/* right content area - slightly narrower than before */
+.app-right {
+  flex: 1 1 60%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: stretch;
+  /* keep items filling width */
+}
+
+/* H3 centered (only the heading) while other text remains left-aligned */
+.app-right h3 {
+  margin: 0;
+  font-family: "Merriweather", Georgia, serif;
+  font-size: 1.05rem;
+  letter-spacing: -0.01em;
+  color: #111;
+  text-align: left;
+  /* requested centered heading */
+}
+
+/* requirements stay left-aligned */
+.app-right ul {
+  margin: 0;
+  padding-left: 18px;
+  color: #333;
+  list-style-type: disc;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  text-align: left;
+}
+
+/* Apply button aligned to right */
+.apply-btn {
+  margin-left: auto;
+  /* push to the right */
+  appearance: none;
+  border: none;
+  background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 0px 10px rgba(232, 138, 162, 0.425);
+  transition: transform .18s ease, box-shadow .18s ease;
+  font-family: inherit;
+}
+
+.apply-btn:hover {
+  transform: translateY(-3px);
+}
+
+.apply-btn:active {
+  transform: translateY(-1px);
+}
+
+.apply-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(232, 138, 161, 0.18);
+  border-radius: 999px;
+}
+
+/* message placeholder (if still present in HTML) - keep hidden */
+.apply-message {
+  display: none !important;
+}
+
+/* Hover lift */
+.application-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(232, 138, 161, 0.08);
+}
+
+/* responsive: tighten gaps on small screens */
+@media (max-width: 520px) {
+  .application-card {
+    gap: 12px;
+    padding: 12px;
+  }
+
+  .app-left {
+    flex: 0 0 38%;
+  }
+
+  .app-left img {
+    max-width: 120px;
+    width: 88%;
+  }
+
+  .apply-btn {
+    padding: 6px 12px;
+    font-size: 17px;
+  }
+}
+
+/* very small screens: stack logo above content for clarity */
+@media (max-width: 360px) {
+  .application-card {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .app-left {
+    flex: none;
+    order: 0;
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 6px;
+  }
+
+  .app-right {
+    order: 1;
+  }
+
+  .apply-btn {
+    align-self: stretch;
+    margin-left: 0;
+    text-align: center;
+  }
+}
+
+
+
+/* =================== Modal overlay & dialog =================== */
+/* overlay that dims + blurs background */
+.apply-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--overlay-bg);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 260ms ease;
+  z-index: 1500;
+  -webkit-backdrop-filter: blur(var(--overlay-blur));
+  backdrop-filter: blur(var(--overlay-blur));
+}
+
+/* visible state */
+.apply-overlay.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* modal dialog box */
+.apply-modal {
+  width: min(520px, 92%);
+  background: var(--glass);
+  border-radius: 12px;
+  padding: 18px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.32);
+  transform: translateY(12px) scale(0.98);
+  opacity: 0;
+  transition: transform 220ms cubic-bezier(.2, .9, .2, 1), opacity 220ms ease;
+  border: 1px solid rgba(232, 138, 161, 0.08);
+}
+
+/* appear state */
+.apply-overlay.show .apply-modal {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+
+/* modal header */
+.apply-modal h3 {
+  margin: 0 0 8px 0;
+  font-family: "Merriweather", Georgia, serif;
+  font-size: 1.05rem;
+  text-align: left;
+}
+
+/* modal body */
+.apply-modal .modal-body {
+  color: #222;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+
+/* modal actions */
+.apply-modal .modal-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+/* OK button (primary) */
+.apply-modal .btn-ok {
+  background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Cancel button */
+.apply-modal .btn-cancel {
+  background: transparent;
+  color: #333;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  cursor: pointer;
+}
+
+/* block background scroll while modal open */
+body.modal-open {
+  overflow: hidden;
+}
+
+/* optionally blur main container when modal is open (fallback) */
+body.modal-open .applications-container {
+  filter: blur(2px) saturate(1.02);
+  transform: translateZ(0);
+}
+
+
+
+/* ==========================================
+==================COMING SOON TAG===================*/
+
+/* Coming Soon Blur Overlay */
+.app-right.coming-soon {
+  position: relative;
+  pointer-events: none;
+  /* disable clicks */
+}
+
+/* Blur only the children, not the overlay */
+.app-right.coming-soon>* {
+  filter: blur(3px);
+}
+
+/* Dark overlay with text */
+.app-right.coming-soon::after {
+  content: "COMING SOON";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  /* dim effect */
+  color: #ffffffa1;
+  font-family: var(--font-sans, Arial, sans-serif);
+  font-weight: 600;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-radius: 10px;
+  /* match card style */
+  backdrop-filter: blur(4px);
+  /* soft blur behind */
+  z-index: 2;
+  /* keep on top */
+}
+
+
+
+
+
+
+
+/* ==========================================
+==================FAQ===================*/
+
+/* fonts: use your site fonts or replace these lines */
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Inter:wght@300;400;600&display=swap");
+
+:root {
+  --faq-max-width: 900px;
+  --accent-1: #ffbac6;
+  --accent-2: #e88aa1;
+  --muted: #6b6b6b;
+  --panel-transition: 360ms cubic-bezier(.2, .9, .2, 1);
+  --icon-rotate-deg: 45deg;
+  /* rotates + into X */
+}
+
+/* container */
+.faq-section {
+  padding: 48px 16px;
+  background: rgba(253, 212, 219, 0.03);
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  color: #111;
+}
+
+.faq-inner {
+  max-width: var(--faq-max-width);
+  margin: 0 auto;
+}
+
+/* heading */
+.faq-heading {
+  font-family: "Merriweather", Georgia, serif;
+  font-size: clamp(1.35rem, 3.2vw, 2rem);
+  margin: 0 0 18px;
+  color: #111;
+  text-align: left;
+}
+
+/* list */
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* single item */
+.faq-item {
+  background: rgba(255, 255, 255, 0.96);
+  border-radius: 12px;
+  border: 1px solid rgba(232, 138, 161, 0.10);
+  box-shadow: none;
+  overflow: hidden;
+}
+
+/* header button */
+.faq-question-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* question left, icon right */
+  gap: 12px;
+  padding: 16px 18px;
+  background: transparent;
+  border: 0;
+  text-align: left;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1rem;
+  color: #111;
+  transition: background 180ms ease;
+}
+
+.faq-question-btn:hover {
+  background: rgba(232, 138, 161, 0.03);
+}
+
+/* question text - left aligned */
+.faq-q {
+  flex: 1;
+  text-align: left;
+  line-height: 1.35;
+}
+
+/* icon (plus char) - right aligned */
+.faq-icon {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background: #fff;
+  color: #000000b6;
+  font-weight: 500;
+  font-size: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 320ms cubic-bezier(.2, .9, .2, 1), background 220ms ease;
+  transform-origin: center;
+}
+
+/* panel (collapsible area) */
+.faq-panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height var(--panel-transition), opacity 180ms ease, transform 260ms ease;
+  opacity: 0;
+  padding: 0 18px;
+  box-sizing: border-box;
+}
+
+/* inner wrapper to measure height and add padding when open */
+.faq-panel-inner {
+  padding: 0 0 18px;
+  color: #333;
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 0.96rem;
+  line-height: 1.6;
+  text-align: left;
+}
+
+/* open state (applied by JS on the .faq-item element) */
+.faq-item.open .faq-panel {
+  opacity: 1;
+}
+
+/* rotate icon into X for open item */
+.faq-item.open .faq-icon {
+  transform: rotate(var(--icon-rotate-deg));
+}
+
+/* give the active header a subtle tint */
+.faq-item.open .faq-question-btn {
+  background: linear-gradient(90deg, rgba(255, 250, 251, 0.6), rgba(255, 250, 251, 0.4));
+}
+
+/* Prevent FAQ items from moving up on hover */
+.faq-item,
+.faq-item:hover,
+.faq-question-btn,
+.faq-question-btn:hover {
+  transform: none !important;
+}
+
+/* responsive tweaks */
+@media (max-width: 520px) {
+  .faq-question-btn {
+    padding: 12px 14px;
+  }
+
+  .faq-icon {
+    width: 30px;
+    height: 30px;
+    min-width: 30px;
+  }
+
+  .faq-panel-inner {
+    padding: 12px 0 16px;
+    font-size: 0.95rem;
+  }
+}
