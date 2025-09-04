@@ -256,7 +256,7 @@ button {
 ==================HEADER===================*/
 .header-wrapper {
   width: 100%;
-  background-color: rgba(255, 255, 255, 0.664);
+  background-color: rgba(255, 255, 255, 0.877);
   backdrop-filter: blur(8px);
   position: sticky;
   top: 0;
@@ -294,16 +294,7 @@ button {
 
 /* ==========================================
 ==================MAIN===================*/
-.main-container {
-  max-width: 850px;
-  min-width: 300px;
-  margin: 0 auto;
-  box-sizing: border-box;
-  font-family: inherit;
-  padding: 0 15px;
-}
 
-/* =================== HERO =================== */
 .hero-container {
   position: relative;
   width: 100%;
@@ -393,11 +384,18 @@ button {
   box-shadow: 0px 0px 20px #94556586;
 }
 
-.hero-top button {
+.hero-btn {
   color: white;
+  position: absolute;
   font-weight: 600;
   margin-top: 20px;
   box-shadow: 0px 5px 10px #f3a6b3;
+  font-family: var(--font-sans);
+  font-size: 17px;
+  padding: 0.75rem 1.5rem;
+  border-radius: 20px;
+  border: 1px solid #e88aa1;
+  background: linear-gradient(135deg, var(--pink-main), var(--pink-deep));
 }
 
 .text {
@@ -801,8 +799,6 @@ button {
 
 @import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Inter:wght@300;400;600;700&display=swap");
 
-/* =================== Applications - layout tweaks + modal =================== */
-/* Copy into styles.css (or import) */
 
 :root {
   --max-width: 800px;
@@ -938,10 +934,6 @@ button {
   border-radius: 999px;
 }
 
-/* message placeholder (if still present in HTML) - keep hidden */
-.apply-message {
-  display: none !important;
-}
 
 /* Hover lift */
 .application-card:hover {
@@ -1000,7 +992,6 @@ button {
 
 
 /* =================== Modal overlay & dialog =================== */
-/* overlay that dims + blurs background */
 .apply-overlay {
   position: fixed;
   inset: 0;
@@ -1294,9 +1285,9 @@ body.modal-open .applications-container {
   }
 
   .faq-icon {
-    width: 30px;
-    height: 30px;
-    min-width: 30px;
+    width: 38px;
+    height: 43px;
+    min-width: 0;
   }
 
   .faq-panel-inner {
@@ -1305,10 +1296,7 @@ body.modal-open .applications-container {
   }
 }
 
-/* end of FAQ styles */
 
-/* ==========================================
-==================FOOTER===================*/
 
 /* =================== FOOTER =================== */
 .footer-wrapper {
@@ -1353,39 +1341,31 @@ body.modal-open .applications-container {
 
 
 
-
 /* =========== SCROLL REVEAL ANN ============ */
-
 .reveal-child {
   opacity: 0;
   transform: translateY(18px);
-  /* smooth natural timing; JS sets transitionDelay per child for stagger */
   transition: transform 640ms cubic-bezier(.2,.9,.2,1), opacity 520ms ease;
   will-change: transform, opacity;
 }
 
-/* When JS toggles .is-visible, the element moves to its final place */
 .reveal-child.is-visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Slight easing for the parent card lift (optional visual polish) */
 .application-card,
 .value-card,
 .faq-item {
   transition: box-shadow 320ms ease, transform 320ms ease;
 }
 
-/* Optional subtle lift when any child becomes visible (gives depth) */
 .application-card .reveal-child.is-visible:first-child,
 .value-card .reveal-child.is-visible:first-child,
 .faq-item .reveal-child.is-visible:first-child {
-  /* only a tiny lift so it doesn't conflict with layout */
   transform-origin: center;
 }
 
-/* Small responsive tweak: reduce translate distance on very small screens */
 @media (max-width: 420px) {
   .reveal-child { transform: translateY(12px); }
 }
