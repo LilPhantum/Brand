@@ -1304,3 +1304,88 @@ body.modal-open .applications-container {
     font-size: 0.95rem;
   }
 }
+
+/* end of FAQ styles */
+
+/* ==========================================
+==================FOOTER===================*/
+
+/* =================== FOOTER =================== */
+.footer-wrapper {
+  background: #ffffff; /* dark theme footer */
+  color: #000000;
+  text-align: center;
+  padding: 20px 15px;
+  font-size: 14px;
+
+}
+
+.site-footer .footer-top {
+  margin-bottom: 15px;
+}
+
+.site-footer {
+  display: flex;
+  justify-content: space-between;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.footer-icons {
+  display: flex;
+  gap: 20px;
+}
+
+.site-footer .footer-icon svg{
+  width: 30px;
+  height: 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  fill: #e88aa1;
+  transition: transform 0.4s ease, fill 0.4s ease;
+}
+
+.site-footer .footer-icon svg:hover {
+  transform: scale(1.2);
+  fill: #eba6b7; /* accent (purple tone) – match your theme */
+}
+
+
+
+
+/* =========== SCROLL REVEAL ANN ============ */
+
+.reveal-child {
+  opacity: 0;
+  transform: translateY(18px);
+  /* smooth natural timing; JS sets transitionDelay per child for stagger */
+  transition: transform 640ms cubic-bezier(.2,.9,.2,1), opacity 520ms ease;
+  will-change: transform, opacity;
+}
+
+/* When JS toggles .is-visible, the element moves to its final place */
+.reveal-child.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Slight easing for the parent card lift (optional visual polish) */
+.application-card,
+.value-card,
+.faq-item {
+  transition: box-shadow 320ms ease, transform 320ms ease;
+}
+
+/* Optional subtle lift when any child becomes visible (gives depth) */
+.application-card .reveal-child.is-visible:first-child,
+.value-card .reveal-child.is-visible:first-child,
+.faq-item .reveal-child.is-visible:first-child {
+  /* only a tiny lift so it doesn't conflict with layout */
+  transform-origin: center;
+}
+
+/* Small responsive tweak: reduce translate distance on very small screens */
+@media (max-width: 420px) {
+  .reveal-child { transform: translateY(12px); }
+}

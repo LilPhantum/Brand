@@ -141,7 +141,12 @@ document.addEventListener("DOMContentLoaded", () => {
     <div class="apply-modal" role="dialog" aria-modal="true" aria-hidden="true">
       <h3 class="modal-title">Confirm Application</h3>
       <div class="modal-body">
-        <p>Please note: you are required to complete <strong>3–5 deals</strong> before signing up your email. We will review and forward your form to the brand after that.</p>
+        <p>
+          Steps to Get Your PR:<br>
+          1. Complete a Simple Questionnaire<br>
+          2. Enter Your Basic Details And Apply<br>
+          3. Complete 4–5 Simple Deals (Required)
+        </p>
       </div>
       <div class="modal-actions">
         <button type="button" class="btn-cancel">Cancel</button>
@@ -355,3 +360,116 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 120);
   });
 });
+
+
+// =========== SCROLL REVEAL ANN ============
+
+document.addEventListener('DOMContentLoaded', () => {
+  const CONFIG = [
+    {
+      containerSelector: '.applications-section',
+      itemSelector: '.application-card',
+      childSelectors: ['.app-left img', '.app-right h3', '.app-right ul', '.app-right .apply-btn']
+    },
+    {
+      containerSelector: '.values-section',
+      itemSelector: '.value-card',
+      childSelectors: ['h3', 'p']
+    },
+    {
+      containerSelector: '.faq-section',
+      itemSelector: '.faq-item',
+      childSelectors: ['.faq-question-btn', '.faq-panel-inner']
+    }
+  ];
+
+  // How long (ms) between each child's reveal inside a card
+  const STAGGER_MS = 90;
+
+  // Map items -> their child elements (for quick lookup in observer)
+  const itemChildrenMap = new Map();
+
+  // Collect all target items
+  const allItems = [];
+
+  CONFIG.forEach(cfg => {
+    const container = document.querySelector(cfg.containerSelector);
+    if (!container) return;
+    const items = Array.from(container.querySelectorAll(cfg.itemSelector));
+    items.forEach(item => {
+      const children = [];
+      cfg.childSelectors.forEach(sel => {
+        const nodes = Array.from(item.querySelectorAll(sel || '*'));
+        nodes.forEach(n => {
+          if (n && !children.includes(n)) children.push(n);
+        });
+      });
+
+      // if no children found, still include item (safety)
+      if (children.length === 0) {
+        children.push(item);
+      }
+
+      // mark children with a class to enable CSS base rules (adds graceful fallback)
+      children.forEach(ch => {
+        ch.classList.add('reveal-child');
+        ch.style.transitionDelay = '';
+      });
+
+      itemChildrenMap.set(item, children);
+      allItems.push(item);
+    });
+  });
+
+  if (allItems.length === 0) return; // nothing to do
+
+  // IntersectionObserver options
+  const IO_OPTS = {
+    root: null,
+    rootMargin: '0px 0px -8% 0px', // start reveal slightly before fully in view
+    threshold: 0.12
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const target = entry.target;
+      if (!entry.isIntersecting) return;
+      // reveal and unobserve
+      revealItem(target);
+      observer.unobserve(target);
+    });
+  }, IO_OPTS);
+
+  // Observe each item
+  allItems.forEach(it => observer.observe(it));
+
+  // Reveal logic: stagger each child inside the item
+  function revealItem(item) {
+    const children = itemChildrenMap.get(item) || [item];
+    if (!children.length) return;
+
+    children.forEach((ch, i) => {
+      const delayMs = i * STAGGER_MS;
+      ch.style.transitionDelay = `${delayMs}ms`;
+      ch.offsetWidth;
+      ch.classList.add('is-visible');
+    });
+
+  }
+
+  let rTimer = null;
+  window.addEventListener('resize', () => {
+    if (rTimer) clearTimeout(rTimer);
+    rTimer = setTimeout(() => {
+
+      itemChildrenMap.forEach((children, item) => {
+        if (!item.classList.contains('revealed')) {
+          children.forEach(ch => {
+            if (!ch.classList.contains('is-visible')) ch.style.transitionDelay = '';
+          });
+        }
+      });
+    }, 140);
+  }, { passive: true });
+});
+
