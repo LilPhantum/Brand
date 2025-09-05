@@ -147,6 +147,7 @@ document.addEventListener("DOMContentLoaded", () => {
           1. Complete a Simple Questionnaire<br>
           2. Enter Your Basic Details And Apply<br>
           3. Complete 4–5 Simple Deals (Required)
+          <hr> PLease: use #Seliphy or #Seliphypr hashtags.
         </p>
       </div>
       <div class="modal-actions">
