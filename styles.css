@@ -256,8 +256,7 @@ button {
 ==================HEADER===================*/
 .header-wrapper {
   width: 100%;
-  background-color: rgba(255, 255, 255, 0.877);
-  backdrop-filter: blur(8px);
+  background-color: rgb(255, 255, 255);
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -275,17 +274,13 @@ button {
   padding: 8px 10px;
 }
 
-.nav ul {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 20px;
-}
+
 
 .nav ul a {
   color: var(--text-dark);
   font-size: 14px;
   transition: color 0.3s ease;
+  padding-right: 10px;
 }
 
 .nav ul a:hover {
@@ -1348,6 +1343,19 @@ body.modal-open .applications-container {
 .site-footer .footer-icon svg:hover {
   transform: scale(1.2);
   fill: #eba6b7; /* accent (purple tone) – match your theme */
+}
+
+@media (max-width: 600px) {
+  .site-footer .footer-icon svg {
+    width: 23px;
+    height: 23px;
+  }
+
+  .footer-top small p{
+    color: #696969;
+    font-size: 13px;
+  }
+  
 }
 
 
