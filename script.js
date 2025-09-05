@@ -81,15 +81,16 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Pause/resume on user interaction
-  function addInteractionPauses(node) {
-    if (!node) return;
-    node.addEventListener('mouseenter', stopAuto, { passive: true });
-    node.addEventListener('mouseleave', startAuto, { passive: true });
-    node.addEventListener('focusin', stopAuto, { passive: true });
-    node.addEventListener('focusout', startAuto, { passive: true });
-    node.addEventListener('touchstart', stopAuto, { passive: true });
-    node.addEventListener('touchend', startAuto, { passive: true });
-  }
+function addInteractionPauses(node) {
+  if (!node) return;
+  if (window.innerWidth <= 600) return;
+  node.addEventListener('mouseenter', stopAuto, { passive: true });
+  node.addEventListener('mouseleave', startAuto, { passive: true });
+  node.addEventListener('focusin', stopAuto, { passive: true });
+  node.addEventListener('focusout', startAuto, { passive: true });
+  node.addEventListener('touchstart', stopAuto, { passive: true });
+  node.addEventListener('touchend', startAuto, { passive: true });
+}
 
   // Recalculate on resize — ensure no animation glitch by temporarily stopping
   let resizeTimer = null;
