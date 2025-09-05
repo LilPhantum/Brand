@@ -445,6 +445,12 @@ button {
   .hero-img {
     display: none;
   }
+
+  .hero-txt p {
+    margin: 20px 0;
+    font-size: 18px;
+    
+  }
 }
 
 
