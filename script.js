@@ -473,3 +473,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { passive: true });
 });
 
+document.getElementById("scrollBtn").addEventListener("click", () => {
+document.getElementById("apply").scrollIntoView({ behavior: "smooth" });
+});
