@@ -146,8 +146,7 @@ document.addEventListener("DOMContentLoaded", () => {
           Steps to Get Your PR:<br>
           1. Complete a Simple Questionnaire<br>
           2. Enter Your Basic Details And Apply<br>
-          3. Complete 4–5 Simple Deals (Required)
-          <hr> PLease: use #Seliphy or #Seliphypr hashtags.
+          3. Complete 3 - 5 Simple Deals (Required)
         </p>
       </div>
       <div class="modal-actions">

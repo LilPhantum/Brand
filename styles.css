@@ -274,17 +274,23 @@ button {
   padding: 8px 10px;
 }
 
+.logo h2 {
+  color: #e88aa1;
+}
 
 
 .nav ul a {
-  color: var(--text-dark);
+  color: #000000;
   font-size: 14px;
   transition: color 0.3s ease;
-  padding-right: 10px;
+  margin-right: 5px;
+  padding: 8px;
+  border-radius: 8px;
+  transition: background-color 0.5s;
 }
 
 .nav ul a:hover {
-  color: var(--pink-deep);
+  background-color: #e88aa236;
 }
 
 /* ==========================================
@@ -359,6 +365,7 @@ button {
   text-align: left;
   z-index: 1;
   margin-top: 30px;
+  padding: 0 10px;
 }
 
 .hero-top {
